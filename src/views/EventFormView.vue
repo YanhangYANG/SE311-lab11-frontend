@@ -2,6 +2,7 @@
 import type { EventItem } from '@/type'
 import type { EventOrganizer} from '@/type'
 import OrganizerService from "@/services/OrganizerService";
+import ImageUpload from "@/components/ImageUpload.vue";
 import EventService from '@/services/EventService';
 import { useRouter } from 'vue-router'
 import { ref } from 'vue'
@@ -43,7 +44,8 @@ location: '',
 date: '',
 time: '',
   petsAllowed: false,
-organizer: {id: 0, name: ''}
+organizer: {id: 0, name: ''},
+  images:[]
 
 })
 </script>
@@ -79,6 +81,8 @@ organizer: {id: 0, name: ''}
 
       <h3>Who is your organizer?</h3>
       <BaseSelect v-model="event.organizer.id" label="Organizer" :options="organizer" />
+      <h3>The image of Event</h3>
+      <ImageUpload v-model="event.images" />
 
 
       <button class="button" type="submit">Submit</button>

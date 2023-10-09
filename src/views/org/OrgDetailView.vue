@@ -36,5 +36,8 @@ watchEffect(() => {
     <p>Organizer name: {{ org.name }}</p>
     <p>Address:{{ org.address }}</p>
     <p v-if="message">{{ message }}</p>
+    <img v-for="image in org.image" :key="image" :src="image" alt="events image"
+         class="border-solid border-gray-200 border-2 rounded p-1 m-1 w-24 hover:shadow-lg"/>
   </div>
+
 </template>

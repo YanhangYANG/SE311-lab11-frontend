@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { OrgItem } from '@/type'
 import OrgService from '@/services/OrgService';
+import ImageUploadSingle from '@/components/ImageUploadSingle.vue'
 import { useRouter } from 'vue-router'
 import { ref } from 'vue'
 import { useMessageStore } from '@/stores/message';
@@ -27,6 +28,7 @@ const event = ref<OrgItem>({
 id: 0,
 name: '',
 address: '',
+image: []
 })
 </script>
 <template>
@@ -48,6 +50,9 @@ address: '',
         placeholder="Address"
         class="field"
       />
+
+      <h3>The image of Org</h3>
+      <ImageUploadSingle v-model="event.image" />
 
       
       
